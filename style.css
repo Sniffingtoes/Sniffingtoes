@@ -1,12 +1,3 @@
-/* Custom Variables for easy changes */
-:root {
-    --bg-color: #fcfcfc;
-    --nav-color: #111111;
-    --text-main: #1a1a1a;
-    --text-muted: #555555;
-    --accent: #007AFF; /* Modern Blue */
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -15,84 +6,136 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-main);
+    color: white;
+    background-color: #0b0e14;
     line-height: 1.6;
 }
 
-/* Slimmer Navigation Bar */
+/* Background image setup */
+.home-bg {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
+                url('background-image.jpg'); /* ADD YOUR IMAGE FILENAME HERE */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+/* Slim Nav Bar */
 nav {
-    background-color: var(--nav-color);
-    color: white;
-    padding: 8px 40px; /* Reduced vertical padding for a smaller bar */
+    background-color: rgba(15, 20, 30, 0.9);
+    height: 60px;
     display: flex;
     align-items: center;
-    position: sticky;
+    padding: 0 50px;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 1000;
-    height: 50px; /* Explicit small height */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 
 .logo-container img {
-    height: 28px; /* Smaller logo to fit the slim bar */
-    width: auto;
+    height: 35px;
     margin-right: 12px;
+    border-radius: 50%;
 }
 
 .brand-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: -0.5px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
 }
 
-/* Main Content Area */
-main {
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 50px);
-    padding: 20px;
-}
-
-.content-wrapper {
     text-align: center;
-    max-width: 600px;
 }
 
-h1 {
-    font-size: 4rem;
-    font-weight: 800;
+.main-title {
+    font-size: 8rem;
+    font-weight: 900;
     letter-spacing: -2px;
-    margin-bottom: 16px;
-    color: var(--text-main);
+    margin-bottom: 20px;
+    /* This creates the pill/bubble look for the text */
+    background: rgba(0,0,0,0.7);
+    padding: 20px 60px;
+    border-radius: 100px;
+    border: 8px solid white;
 }
 
-p {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    margin-bottom: 30px;
-}
-
-/* Bonus: A nice button */
-.cta-button {
-    background-color: var(--nav-color);
+.btn-primary {
+    display: inline-block;
+    padding: 12px 40px;
+    border: 2px solid #e0e0e0;
     color: white;
-    padding: 12px 28px;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.8rem;
+    background: rgba(0,0,0,0.4);
+    transition: all 0.3s;
 }
 
-.cta-button:hover {
-    transform: translateY(-2px);
-    background-color: #333;
+.btn-primary:hover {
+    background: white;
+    color: black;
+}
+
+.learn-more {
+    margin-top: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+/* Policy Page Styling */
+.policy-container {
+    padding: 120px 20px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.policy-container h1 { margin-bottom: 40px; font-size: 2.5rem; }
+.policy-container h2 { margin-top: 30px; color: #ccc; }
+.policy-container h3 { margin-top: 15px; font-size: 1.1rem; }
+.policy-container p { margin-bottom: 15px; color: #aaa; }
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+footer a {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.7rem;
+    text-decoration: none;
 }
