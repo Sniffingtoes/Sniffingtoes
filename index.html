@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="logo.png">
     <title>Jambo | Home</title>
-    <link rel="stylesheet" href="style.css"> </head>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body class="home-bg">
     <nav>
         <div class="nav-container">
@@ -22,8 +23,9 @@
     </nav>
 
     <section class="hero">
-        <h1 class="main-title">JAMBO</h1>
-        <a href="jambo" class="btn-primary">PLAY FREE</a>
+        <h1 class="main-title animate-pop">JAMBO</h1>
+        <a href="jambo" class="btn-primary animate-pop">PLAY FREE</a>
+        <div class="bounce-arrow" onclick="window.scrollTo(0, 900)">▼</div>
     </section>
 
     <section class="info-section">
@@ -33,22 +35,26 @@
         </div>
         <div class="info-card reveal">
             <h2>Shop</h2>
-            <p>The shop offers a wide variety of cosmetics to choose from, changing with every update.</p>
+            <p>The shop offers a wide variety of cosmetics to choose from, changing with every update, giving you plenty of choices for unique looks.</p>
         </div>
         <div class="info-card reveal">
             <h2>The Teams</h2>
-            <p>I am a solo developer, but we have an incredible team of moderators and community!</p>
+            <p>I am a solo developer, but we have some awesome moderators and community!</p>
         </div>
     </section>
 
-    <footer style="text-align:center; padding: 40px;">
-        <a href="privacypolicy" style="color: #444; text-decoration: none;">Privacy Policy</a>
+    <footer style="text-align: center; padding-bottom: 50px;">
+        <a href="privacypolicy" style="color: #444; text-decoration: none; font-size: 0.8rem;">Privacy Policy</a>
     </footer>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((e) => { if(e.isIntersecting) e.target.classList.add('show'); });
-        });
+            entries.forEach((e) => { 
+                if(e.isIntersecting) {
+                    setTimeout(() => { e.target.classList.add('show'); }, 100); 
+                } 
+            });
+        }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     </script>
 </body>
