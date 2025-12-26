@@ -11,10 +11,9 @@ body {
     line-height: 1.6;
 }
 
-/* Background image setup */
 .home-bg {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
-                url('background-image.jpg'); /* ADD YOUR IMAGE FILENAME HERE */
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), 
+                url('image_e6d88e.jpg'); /* Ensure this matches your forest image name */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -23,11 +22,11 @@ body {
 
 /* Slim Nav Bar */
 nav {
-    background-color: rgba(15, 20, 30, 0.9);
-    height: 60px;
+    background-color: rgba(10, 15, 25, 0.95);
+    height: 55px;
     display: flex;
     align-items: center;
-    padding: 0 50px;
+    padding: 0 40px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -47,31 +46,32 @@ nav {
 }
 
 .logo-container img {
-    height: 35px;
+    height: 32px;
+    width: auto;
     margin-right: 12px;
-    border-radius: 50%;
 }
 
 .brand-name {
     font-weight: 700;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     margin-left: 30px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
+    opacity: 0.8;
     transition: opacity 0.2s;
 }
 
 .nav-links a:hover {
-    opacity: 0.7;
+    opacity: 1;
 }
 
-/* Hero Section */
+/* Main Content */
 .hero {
     height: 100vh;
     display: flex;
@@ -81,27 +81,27 @@ nav {
 }
 
 .main-title {
-    font-size: 8rem;
+    font-size: clamp(3rem, 12vw, 7.5rem);
     font-weight: 900;
-    letter-spacing: -2px;
-    margin-bottom: 20px;
-    /* This creates the pill/bubble look for the text */
-    background: rgba(0,0,0,0.7);
-    padding: 20px 60px;
-    border-radius: 100px;
-    border: 8px solid white;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 70px;
+    border-radius: 150px;
+    border: 9px solid white;
+    display: inline-block;
 }
 
 .btn-primary {
     display: inline-block;
-    padding: 12px 40px;
-    border: 2px solid #e0e0e0;
+    padding: 14px 45px;
+    border: 2px solid #ffffff;
     color: white;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 0.8rem;
-    background: rgba(0,0,0,0.4);
-    transition: all 0.3s;
+    font-weight: 800;
+    font-size: 0.85rem;
+    background: rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
@@ -110,22 +110,23 @@ nav {
 }
 
 .learn-more {
-    margin-top: 50px;
+    margin-top: 40px;
     font-weight: 700;
     font-size: 0.8rem;
+    letter-spacing: 1px;
 }
 
-/* Policy Page Styling */
+/* Policy Page Layout */
 .policy-container {
-    padding: 120px 20px 60px;
-    max-width: 800px;
+    padding: 120px 20px 80px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.policy-container h1 { margin-bottom: 40px; font-size: 2.5rem; }
-.policy-container h2 { margin-top: 30px; color: #ccc; }
-.policy-container h3 { margin-top: 15px; font-size: 1.1rem; }
-.policy-container p { margin-bottom: 15px; color: #aaa; }
+.policy-container h1 { margin-bottom: 40px; font-size: 3rem; font-weight: 900; }
+.policy-container h2 { margin-top: 40px; color: #fff; border-bottom: 1px solid #333; padding-bottom: 10px; }
+.policy-container h3 { margin-top: 20px; font-size: 1.2rem; color: #007AFF; }
+.policy-container p { margin-bottom: 15px; color: #ccc; }
 
 footer {
     position: absolute;
@@ -135,7 +136,7 @@ footer {
 }
 
 footer a {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.75rem;
     text-decoration: none;
 }
