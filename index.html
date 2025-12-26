@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="logo.png">
     <title>Jambo | Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="home-bg">
@@ -16,7 +16,7 @@
                 <img src="logo.png" alt="Jambo Logo">
                 <span class="brand-name">Jambo</span>
             </div>
-            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">MENU</div>
             <div class="nav-links" id="navLinks">
                 <a href="/">Home</a>
                 <a href="jambo">Jambo</a>
@@ -27,11 +27,11 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1 class="main-title animate-slide-up">JAMBO</h1>
-            <div class="button-group animate-fade-in">
+            <h1 class="main-title animate-pop">JAMBO</h1>
+            <div class="button-group">
                 <a href="jambo" class="btn-primary">PLAY FREE</a>
             </div>
-            <a href="#about" class="learn-more-link animate-bounce">
+            <a href="#about" class="learn-more-link">
                 <div class="learn-more">
                     <p>LEARN MORE</p>
                     <span class="arrow">▼</span>
@@ -42,21 +42,18 @@
 
     <section id="about" class="info-section">
         <div class="info-card reveal">
-            <div class="card-icon">🎮</div>
             <h2>JAMBO!</h2>
-            <p>This is a hand locomotion movement style game, hang out with friends and explore all the maps.</p>
+            <p>This is a hand locomotion movement style game. Hang out with friends and explore all the maps available in our world.</p>
         </div>
 
         <div class="info-card reveal">
-            <div class="card-icon">🛍️</div>
             <h2>Shop</h2>
-            <p>The shop offers a wide variety of cosmetics to choose from changing with every update, giving you plenty of choices for different and unique looks.</p>
+            <p>The shop offers a wide variety of cosmetics to choose from, changing with every update, giving you plenty of choices for unique looks.</p>
         </div>
 
         <div class="info-card reveal">
-            <div class="card-icon">🛠️</div>
             <h2>The Teams</h2>
-            <p>I am a solo developer but we have some awesome moderators and community!</p>
+            <p>I am a solo developer, but we have an incredible team of moderators and a dedicated community supporting the game.</p>
         </div>
     </section>
 
@@ -65,20 +62,17 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
         function toggleMenu() {
-            const links = document.getElementById('navLinks');
-            links.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
 
-        // Scroll Reveal
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show');
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     </script>
