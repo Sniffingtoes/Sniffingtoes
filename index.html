@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Megamind | Official Site</title>
+    <title>Megamind | Dev Portfolio</title>
     <style>
-        /* General Setup */
         body {
             background: radial-gradient(circle, #1a1a2e 0%, #020205 100%);
             color: #00d4ff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Courier New', Courier, monospace; /* Monospaced font for dev vibes */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,36 +17,40 @@
             overflow: hidden;
         }
 
-        /* The Presentation Box */
         .container {
             text-align: center;
-            padding: 50px;
+            padding: 60px;
             border: 2px solid #00d4ff;
-            border-radius: 20px;
+            border-radius: 15px;
             background: rgba(0, 212, 255, 0.05);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), inset 0 0 15px rgba(0, 212, 255, 0.2);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            backdrop-filter: blur(8px);
         }
 
         h1 {
-            font-size: 4rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 10px #00d4ff, 0 0 30px #00d4ff;
-            animation: glow 2s ease-in-out infinite alternate;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px #00d4ff;
         }
 
-        p {
+        .description {
+            font-size: 1.5rem;
             color: #fff;
+            background: rgba(0, 212, 255, 0.2);
+            padding: 5px 15px;
+            display: inline-block;
+            border-radius: 5px;
             letter-spacing: 2px;
-            font-weight: 300;
         }
 
-        /* Animation for that extra 'Presentation' flare */
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #00d4ff; }
-            to { text-shadow: 0 0 25px #00d4ff, 0 0 40px #0077ff; }
+        /* Cursor blink effect for dev feel */
+        .cursor {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
     </style>
 </head>
@@ -55,7 +58,7 @@
 
     <div class="container">
         <h1>Hello, I am Megamind</h1>
-        <p>Master of all things... Blue.</p>
+        <p class="description">I am a dev<span class="cursor">_</span></p>
     </div>
 
 </body>
