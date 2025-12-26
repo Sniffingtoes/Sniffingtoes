@@ -1,14 +1,13 @@
-/* style.css */
+/* style.css - Modern VR Theme */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('background.jpg');
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     height: 100vh;
-    color: white;
     display: flex;
     flex-direction: column;
 }
@@ -17,89 +16,74 @@ body {
 nav {
     display: flex;
     justify-content: center;
-    align-items: center;
-    background: #111827; /* Dark slate blue */
-    padding: 10px 5%;
+    background: #1a202c; /* Deep slate blue from your image */
+    padding: 12px 0;
     border-bottom: 3px solid #3b82f6;
 }
 
 .nav-container {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 90%;
     max-width: 1200px;
 }
 
 .nav-logo {
-    height: 45px;
-    width: 45px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     margin-right: auto;
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 25px;
 }
 
 nav a {
-    color: #cbd5e1;
+    color: #e2e8f0;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
     transition: 0.3s;
-    padding: 10px 0;
 }
 
 nav a:hover, nav a.active {
-    color: white;
+    color: #ffffff;
     border-bottom: 2px solid #3b82f6;
 }
 
-/* Central Content Card */
+/* Central Card */
 .container {
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 }
 
 .box {
-    background: rgba(15, 23, 42, 0.85); /* Slightly transparent slate */
-    backdrop-filter: blur(12px);
+    background: rgba(15, 23, 42, 0.85); /* Slate with transparency */
+    backdrop-filter: blur(15px);
     padding: 40px;
-    border-radius: 25px;
+    border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
-    max-width: 550px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 500px;
+    color: white;
 }
 
-h1 { font-size: 2.8rem; margin: 0; letter-spacing: 1px; }
-h2 { color: #f43f5e; font-size: 2.2rem; margin: 10px 0; } /* Jambo Pink/Red */
+h1 { font-size: 2.2rem; margin: 0; letter-spacing: 1px; }
+h2 { color: #ff00ff; font-size: 2rem; margin: 5px 0; } /* Jambo Pink */
 
-.subtitle { color: #94a3b8; font-size: 1.1rem; margin-bottom: 25px; }
+.subtitle { color: #94a3b8; font-size: 1rem; margin-bottom: 20px; }
 
-/* Privacy Text Scrolling */
-.policy-text {
-    text-align: left;
-    max-height: 300px;
-    overflow-y: auto;
-    background: rgba(0,0,0,0.2);
-    padding: 15px;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #e2e8f0;
-}
-
-/* Reference Image Buttons */
-.btn-group { display: flex; gap: 15px; margin-top: 30px; }
+/* Buttons */
+.btn-group { display: flex; gap: 12px; margin-top: 25px; }
 
 .btn {
-    padding: 14px 28px;
-    border-radius: 8px;
+    padding: 12px 24px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
     flex: 1;
@@ -108,5 +92,5 @@ h2 { color: #f43f5e; font-size: 2.2rem; margin: 10px 0; } /* Jambo Pink/Red */
 }
 
 .btn-blue { background: #3b82f6; color: white; }
-.btn-white { background: #f1f5f9; color: #0f172a; }
-.btn:hover { transform: translateY(-3px); opacity: 0.9; }
+.btn-white { background: #f8fafc; color: #1e293b; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
