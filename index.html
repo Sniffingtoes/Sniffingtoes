@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="logo.png">
     <title>Jambo | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="home-bg">
+
     <nav>
         <div class="nav-container">
             <div class="logo-container">
                 <img src="logo.png" alt="Logo">
                 <span class="brand-name">Jambo</span>
             </div>
-            <div class="nav-links">
+            <div class="mobile-menu-btn" onclick="toggleMenu()">MENU</div>
+            <div class="nav-links" id="navLinks">
                 <a href="/">Home</a>
-                <a href="jambo">Jambo</a>
+                <a href="download">Download</a>
                 <a href="discord">Discord</a>
             </div>
         </div>
@@ -24,8 +27,8 @@
 
     <section class="hero">
         <h1 class="main-title animate-pop">JAMBO</h1>
-        <a href="jambo" class="btn-primary animate-pop">PLAY FREE</a>
-        <div class="bounce-arrow" onclick="window.scrollTo(0, 900)">▼</div>
+        <a href="download" class="btn-primary animate-pop">PLAY FREE</a>
+        <div class="bounce-arrow" onclick="window.scrollTo({top: 900, behavior: 'smooth'})">▼</div>
     </section>
 
     <section class="info-section">
@@ -33,29 +36,38 @@
             <h2>JAMBO!</h2>
             <p>This is a hand locomotion movement style game. Hang out with friends and explore all the maps available in our world.</p>
         </div>
+        
         <div class="info-card reveal">
             <h2>Shop</h2>
             <p>The shop offers a wide variety of cosmetics to choose from, changing with every update, giving you plenty of choices for unique looks.</p>
         </div>
+
         <div class="info-card reveal">
             <h2>The Teams</h2>
-            <p>I am a solo developer, but we have some awesome moderators and community!</p>
+            <p>I am a solo developer, but we have an incredible team of moderators and a dedicated community supporting the game.</p>
         </div>
     </section>
 
-    <footer style="text-align: center; padding-bottom: 50px;">
-        <a href="privacypolicy" style="color: #444; text-decoration: none; font-size: 0.8rem;">Privacy Policy</a>
+    <footer>
+        <a href="privacypolicy">Privacy Policy</a>
     </footer>
 
     <script>
+        // Intersection Observer for staggered scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((e) => { 
                 if(e.isIntersecting) {
-                    setTimeout(() => { e.target.classList.add('show'); }, 100); 
+                    e.target.classList.add('show');
                 } 
             });
         }, { threshold: 0.1 });
+
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // Mobile menu toggle function
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
     </script>
 </body>
 </html>
