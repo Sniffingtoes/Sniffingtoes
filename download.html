@@ -2,18 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jambo | Download</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <nav>
         <div class="nav-container">
-            <div class="logo-container">
-                <img src="logo.png" alt="Logo">
-                <span class="brand-name">Jambo</span>
-            </div>
+            <div class="logo-container"><img src="logo.png" alt="Logo"><span class="brand-name">Jambo</span></div>
             <div class="nav-links">
                 <a href="/">Home</a>
                 <a href="/download" class="active-tab">Download</a>
@@ -30,8 +25,7 @@
             <div class="policy-section">
                 <h2>Installation</h2>
                 <p>Jump into the world of hand locomotion. Jambo is available for download directly on your Meta Quest headset via the Store.</p>
-                
-                <a href="#" class="btn-primary" style="margin-top: 20px; display: inline-block; text-decoration: none;">VIEW ON QUEST STORE</a>
+                <a href="YOUR_STORE_LINK" class="btn-download">VIEW ON QUEST STORE</a>
             </div>
 
             <div class="policy-section">
@@ -52,14 +46,8 @@
 
     <script>
         const reveal = () => {
-            const reveals = document.querySelectorAll(".reveal");
-            reveals.forEach(el => {
-                const windowHeight = window.innerHeight;
-                const elementTop = el.getBoundingClientRect().top;
-                const elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    el.classList.add("active");
-                }
+            document.querySelectorAll(".reveal").forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active");
             });
         };
         window.addEventListener("scroll", reveal);
