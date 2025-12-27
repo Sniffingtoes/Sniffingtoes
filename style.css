@@ -1,40 +1,38 @@
-/* --- 1. CORE SETUP --- */
+/* --- 1. GLOBAL SETUP --- */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     min-height: 100vh;
-    background-color: #05070a; /* Base color */
+    background-color: #0d1117; /* Backup color - if screen is blue/grey, code works but image is missing */
     color: white;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
 
 /* --- 2. THE BACKGROUND ENGINE --- */
-/* This works on PC and Mobile */
 .home-bg::before {
-    content: ""; /* MUST HAVE THIS or it disappears */
+    content: ""; 
     position: fixed;
-    top: -5%; 
-    left: -5%;
-    width: 110%; 
-    height: 110%;
-    /* Ensure filename is exactly Background.png */
+    top: -5%; left: -5%;
+    width: 110%; height: 110%;
+    /* 1. Check if 'Background.png' is in the SAME folder as this CSS file */
+    /* 2. Check if it's named Background.png (Caps matter!) */
     background: linear-gradient(rgba(0, 0, 0, 0.5), #05070a), 
                 url('Background.png') no-repeat center center;
     background-size: cover;
     filter: blur(15px);
     -webkit-filter: blur(15px);
-    z-index: -1; /* Keeps it behind everything */
+    z-index: -1;
     transform: translateZ(0);
 }
 
-/* --- 3. NAVIGATION --- */
+/* --- 3. NAVIGATION (PC & MOBILE) --- */
 nav {
     background: rgba(5, 7, 10, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    height: 75px;
+    height: 80px;
     display: flex;
     align-items: center;
     padding: 0 5%;
@@ -52,11 +50,11 @@ nav {
     align-items: center;
 }
 
-.logo-container { display: flex; align-items: center; gap: 10px; }
-.logo-container img { height: 40px; }
-.brand-name { font-weight: 900; font-size: 1.2rem; text-transform: uppercase; }
+.logo-container { display: flex; align-items: center; gap: 12px; }
+.logo-container img { height: 45px; }
+.brand-name { font-weight: 900; font-size: 1.3rem; text-transform: uppercase; }
 
-/* Show links on PC */
+/* Desktop Menu */
 .nav-links { 
     display: flex; 
     gap: 30px; 
@@ -65,10 +63,10 @@ nav {
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 700;
     opacity: 0.7;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .nav-links a:hover { opacity: 1; }
@@ -81,54 +79,66 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 .main-title {
-    font-size: clamp(3rem, 15vw, 8rem);
+    font-size: clamp(3rem, 15vw, 8.5rem);
     font-weight: 900;
-    border: 8px solid white;
-    padding: 15px 70px;
+    border: 10px solid white;
+    padding: 15px 60px;
     border-radius: 500px;
     background: rgba(0,0,0,0.6);
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 }
 
 .btn-primary {
     display: inline-block;
-    padding: 18px 55px;
-    border: 2px solid white;
+    padding: 18px 60px;
+    border: 3px solid white;
     color: white;
     text-decoration: none;
     font-weight: 800;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: white;
+    color: black;
 }
 
 /* --- 5. CONTENT SECTIONS --- */
 .info-section {
-    padding: 150px 5% 100px;
-    max-width: 900px;
+    padding: 160px 5% 100px;
+    max-width: 950px;
     margin: 0 auto;
 }
 
 .info-card, .policy-paper {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 25px;
-    margin-bottom: 40px;
+    padding: 50px;
+    border-radius: 30px;
+    margin-bottom: 50px;
+    backdrop-filter: blur(10px);
 }
 
+/* Animations */
 .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
 .reveal.show { opacity: 1; transform: translateY(0); }
 
 /* --- 6. MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
-    /* Hide links on mobile unless we add a menu toggle later */
-    .nav-links { display: none; } 
+    /* Menu stays visible, just gets slightly smaller for mobile */
+    .nav-links { gap: 15px; }
+    .nav-links a { font-size: 0.8rem; }
+    .brand-name { font-size: 1rem; }
+    .logo-container img { height: 35px; }
     
     .main-title { 
-        padding: 10px 35px; 
-        font-size: 3.5rem; 
-        border-width: 5px;
+        padding: 10px 30px; 
+        font-size: 3.2rem; 
+        border-width: 6px; 
     }
 }
