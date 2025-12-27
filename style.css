@@ -14,7 +14,6 @@ html, body {
     scroll-behavior: smooth;
 }
 
-/* --- NAVIGATION --- */
 nav {
     background: rgba(22, 27, 34, 0.8);
     backdrop-filter: blur(12px);
@@ -43,9 +42,7 @@ nav {
     gap: 12px;
 }
 
-.logo-container img {
-    height: 40px;
-}
+.logo-container img { height: 40px; }
 
 .brand-name {
     font-weight: 800;
@@ -54,10 +51,7 @@ nav {
     color: #ffffff;
 }
 
-.nav-links {
-    display: flex;
-    gap: 10px;
-}
+.nav-links { display: flex; gap: 10px; }
 
 .nav-links a {
     position: relative;
@@ -70,18 +64,6 @@ nav {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: #58a6ff;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
 .nav-links a:hover {
     opacity: 1;
     color: #58a6ff;
@@ -89,11 +71,7 @@ nav {
     border-radius: 8px;
 }
 
-.nav-links a:hover::after {
-    width: 60%;
-}
-
-/* --- MAIN PAGE / HERO --- */
+/* --- HERO SECTION --- */
 .hero {
     height: 100vh;
     display: flex;
@@ -101,6 +79,7 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 0 20px;
 }
 
 .main-title {
@@ -121,17 +100,18 @@ nav {
     text-decoration: none;
     font-weight: 700;
     border-radius: 8px;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .btn-primary:hover {
     background: #ffffff;
     color: #0d1117;
+    transform: translateY(-3px);
 }
 
-/* --- PRIVACY POLICY --- */
-.policy-container {
-    padding: 140px 5% 100px;
+/* --- INFO/POLICY CARDS --- */
+.info-section {
+    padding: 0 5% 100px;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -140,76 +120,37 @@ nav {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 28px;
-    padding: 60px;
+    padding: 50px;
+    margin-bottom: 30px;
     backdrop-filter: blur(10px);
 }
 
-.policy-card h1 {
-    font-size: 3rem;
-    font-weight: 900;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
+.policy-card h2 { font-size: 2rem; color: #ffffff; margin-bottom: 20px; }
 
-.last-updated {
-    color: #58a6ff;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 50px;
-    display: block;
-}
+.policy-card p { color: #abb2bf; line-height: 1.8; font-size: 1.1rem; }
 
-.policy-section {
-    margin-bottom: 50px;
-    padding: 20px;
-    border-radius: 12px;
-    border-left: 3px solid transparent;
-    transition: 0.4s ease;
-}
+.policy-card ul { list-style: none; margin-top: 20px; }
 
-.policy-section:hover {
-    background: rgba(255, 255, 255, 0.03);
-    border-left: 3px solid #58a6ff;
-    transform: translateX(10px);
-}
-
-.policy-section h2 {
-    font-size: 1.8rem;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-.policy-section h3 {
-    color: #58a6ff;
-    margin: 25px 0 10px;
-}
-
-.policy-section p, .policy-section li {
+.policy-card li {
     color: #abb2bf;
-    line-height: 1.8;
-}
-
-.policy-section ul { list-style: none; margin: 15px 0; }
-
-.policy-section li {
+    margin-bottom: 12px;
     padding-left: 25px;
     position: relative;
-    margin-bottom: 10px;
 }
 
-.policy-section li::before {
+.policy-card li::before {
     content: "→";
     position: absolute;
     left: 0;
     color: #58a6ff;
+    font-weight: bold;
 }
 
 /* --- ANIMATIONS --- */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .reveal.active {
@@ -219,6 +160,6 @@ nav {
 
 @media (max-width: 768px) {
     .nav-links { display: none; }
-    .policy-card { padding: 30px 20px; border: none; background: transparent; }
     .main-title { font-size: 3.5rem; padding: 10px 30px; }
+    .policy-card { padding: 30px 20px; }
 }
