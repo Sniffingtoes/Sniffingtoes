@@ -15,10 +15,9 @@
                 <span class="brand-name">Jambo</span>
             </div>
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="download.html">Download</a>
-                <a href="privacypolicy.html">Privacy</a>
-                <a href="discord.html">Discord</a>
+                <a href="/">Home</a>
+                <a href="/download" class="active-tab">Download</a>
+                <a href="/discord">Discord</a>
             </div>
         </div>
     </nav>
@@ -26,22 +25,28 @@
     <main class="policy-container">
         <div class="policy-card reveal">
             <h1>Get Jambo</h1>
-            <span class="last-updated">Available on Meta Horizon OS</span>
+            <span class="last-updated">Meta Horizon OS</span>
             
             <div class="policy-section">
                 <h2>Installation</h2>
-                <p>Experience the next generation of social VR. Download Jambo directly to your Quest headset.</p>
-                <a href="YOUR_QUEST_STORE_LINK_HERE" class="btn-primary" style="margin-top: 20px;">QUEST STORE</a>
+                <p>Jump into the world of hand locomotion. Jambo is available for download directly on your Meta Quest headset via the Store.</p>
+                
+                <a href="#" class="btn-primary" style="margin-top: 20px; display: inline-block; text-decoration: none;">VIEW ON QUEST STORE</a>
             </div>
 
             <div class="policy-section">
-                <h2>System Requirements</h2>
+                <h2>Supported Devices</h2>
                 <ul>
-                    <li>Meta Quest 2, Quest 3, or Quest Pro</li>
-                    <li>Active Meta Account</li>
-                    <li>Stable Internet Connection</li>
+                    <li>Meta Quest 2</li>
+                    <li>Meta Quest 3 / 3S</li>
+                    <li>Meta Quest Pro</li>
                 </ul>
             </div>
+        </div>
+
+        <div class="policy-card reveal">
+            <h2>Updates & Support</h2>
+            <p>We update Jambo frequently with new maps and cosmetics in the Shop. If you run into issues, please visit our Discord for help from our moderators.</p>
         </div>
     </main>
 
@@ -51,7 +56,10 @@
             reveals.forEach(el => {
                 const windowHeight = window.innerHeight;
                 const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) { el.classList.add("active"); }
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add("active");
+                }
             });
         };
         window.addEventListener("scroll", reveal);
