@@ -1,89 +1,224 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jambo | Privacy Policy</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <nav>
-        <div class="nav-container">
-            <div class="logo-container">
-                <img src="logo.png" alt="Logo">
-                <span class="brand-name">Jambo</span>
-            </div>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="download.html">Download</a>
-                <a href="discord.html">Discord</a>
-            </div>
-        </div>
-    </nav>
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #161b22 0%, #0d1117 100%);
+    color: #e6edf3;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
 
-    <main class="policy-container">
-        <div class="policy-card reveal">
-            <h1>Jambo Privacy Policy</h1>
-            <span class="last-updated">Last Updated: December 2025</span>
+/* --- NAVIGATION --- */
+nav {
+    background: rgba(22, 27, 34, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    height: 75px;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-            <div class="policy-section reveal">
-                <h2>1. Data Collection & Sources</h2>
-                <h3>1.1 Meta Account Integration</h3>
-                <p>Jambo utilizes Meta accounts for secure authentication and profile management. Upon launching the Game, we access:</p>
-                <ul>
-                    <li>Your public display name</li>
-                    <li>Your unique Meta user ID</li>
-                </ul>
-                <h3>1.2 Gameplay & Analytics</h3>
-                <p>To provide a seamless experience, Jambo collects data regarding:</p>
-                <ul>
-                    <li>In-game progress, achievements, and unlocked content</li>
-                    <li>Avatar customizations and cosmetic preferences</li>
-                    <li>Transaction history for in-game currency or items</li>
-                    <li>Technical diagnostics (OS version, device model, and performance logs)</li>
-                </ul>
-            </div>
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
 
-            <div class="policy-section reveal">
-                <h2>2. Purpose of Data Processing</h2>
-                <p>We process your information to ensure Jambo remains functional and fair. This data is used to:</p>
-                <ul>
-                    <li>Operate, maintain, and optimize the Game environment</li>
-                    <li>Diagnose technical glitches, crashes, and performance bottlenecks</li>
-                    <li>Uphold community standards and enforce anti-cheat protocols</li>
-                    <li>Facilitate player support and resolve account inquiries</li>
-                    <li>Refine gameplay balance based on user interaction patterns</li>
-                </ul>
-            </div>
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-            <div class="policy-section reveal">
-                <h2>3. Information Disclosure</h2>
-                <p>Jambo does not sell user data to third parties or advertisers. We only share information with:</p>
-                <ul>
-                    <li><strong>Service Providers:</strong> Trusted backend and analytics partners essential for game operations.</li>
-                    <li><strong>Legal Necessity:</strong> Authorities when required by law or to ensure community safety.</li>
-                </ul>
-            </div>
+.logo-container img {
+    height: 40px;
+}
 
-            <div class="policy-section reveal">
-                <h2>4. Storage and Retention</h2>
-                <p>Data is stored only for the duration necessary to support your gameplay or fulfill legal requirements. Should your Meta account be deactivated, your associated data will be permanently deleted or anonymized.</p>
-            </div>
-        </div>
-    </main>
+.brand-name {
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
 
-    <script>
-        const reveal = () => {
-            const reveals = document.querySelectorAll(".reveal");
-            reveals.forEach(el => {
-                const windowHeight = window.innerHeight;
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) { el.classList.add("active"); }
-            });
-        };
-        window.addEventListener("scroll", reveal);
-        reveal();
-    </script>
-</body>
-</html>
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links a {
+    position: relative;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    opacity: 0.6;
+    padding: 10px 15px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #58a6ff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    color: #58a6ff;
+    background: rgba(88, 166, 255, 0.08);
+    border-radius: 8px;
+}
+
+.nav-links a:hover::after {
+    width: 60%;
+}
+
+/* --- MAIN PAGE / HERO --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main-title {
+    font-size: clamp(3rem, 12vw, 7.5rem);
+    font-weight: 900;
+    border: 6px solid #ffffff;
+    padding: 15px 60px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 16px 50px;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #ffffff;
+    color: #0d1117;
+}
+
+/* --- PRIVACY POLICY --- */
+.policy-container {
+    padding: 140px 5% 100px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.policy-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    padding: 60px;
+    backdrop-filter: blur(10px);
+}
+
+.policy-card h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.last-updated {
+    color: #58a6ff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    display: block;
+}
+
+.policy-section {
+    margin-bottom: 50px;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 3px solid transparent;
+    transition: 0.4s ease;
+}
+
+.policy-section:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid #58a6ff;
+    transform: translateX(10px);
+}
+
+.policy-section h2 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.policy-section h3 {
+    color: #58a6ff;
+    margin: 25px 0 10px;
+}
+
+.policy-section p, .policy-section li {
+    color: #abb2bf;
+    line-height: 1.8;
+}
+
+.policy-section ul { list-style: none; margin: 15px 0; }
+
+.policy-section li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.policy-section li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #58a6ff;
+}
+
+/* --- ANIMATIONS --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .policy-card { padding: 30px 20px; border: none; background: transparent; }
+    .main-title { font-size: 3.5rem; padding: 10px 30px; }
+}
