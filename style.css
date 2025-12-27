@@ -14,6 +14,7 @@ html, body {
     scroll-behavior: smooth;
 }
 
+/* --- NAVIGATION --- */
 nav {
     background: rgba(22, 27, 34, 0.8);
     backdrop-filter: blur(12px);
@@ -37,83 +38,80 @@ nav {
 }
 
 .logo-container { display: flex; align-items: center; gap: 12px; }
-.logo-container img { height: 40px; }
+.logo-container img { height: 40px; border-radius: 50%; }
 .brand-name { font-weight: 800; font-size: 1.2rem; color: #ffffff; }
 
-.nav-links { display: flex; gap: 10px; }
+.nav-links { display: flex; gap: 15px; }
 
 .nav-links a {
-    position: relative;
     color: #ffffff;
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 700;
     opacity: 0.5;
     padding: 10px 15px;
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
+    border-radius: 8px;
 }
 
-/* Tab Highlight Logic */
 .nav-links a:hover, .nav-links a.active-tab {
     opacity: 1;
     color: #58a6ff;
     background: rgba(88, 166, 255, 0.1);
-    border-radius: 8px;
 }
 
-.nav-links a.active-tab::after {
-    content: "";
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    width: 60%;
-    height: 2px;
-    background: #58a6ff;
-    transform: translateX(-50%);
+/* --- CARDS & CONTENT --- */
+.policy-container {
+    padding: 140px 5% 100px;
+    max-width: 900px;
+    margin: 0 auto;
 }
-
-/* --- HERO & INFO --- */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.main-title {
-    font-size: clamp(3rem, 12vw, 7.5rem);
-    font-weight: 900;
-    border: 6px solid #ffffff;
-    padding: 15px 60px;
-    border-radius: 100px;
-    background: rgba(255, 255, 255, 0.05);
-    margin-bottom: 20px;
-}
-
-.info-section { padding: 0 5% 100px; max-width: 900px; margin: 0 auto; }
 
 .policy-card {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 28px;
-    padding: 40px;
+    padding: 50px;
     margin-bottom: 30px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
 
-.policy-card h2 { color: #58a6ff; margin-bottom: 15px; }
-.policy-card p { line-height: 1.8; color: #abb2bf; }
+.policy-card h1 { font-size: 3rem; margin-bottom: 10px; color: #ffffff; }
+.last-updated { color: #58a6ff; font-size: 0.85rem; font-weight: 700; margin-bottom: 40px; display: block; }
+
+.policy-section h2 { font-size: 1.8rem; color: #ffffff; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+.policy-section h3 { color: #58a6ff; margin: 25px 0 10px; font-size: 1.2rem; }
+.policy-section p, .policy-section li { color: #abb2bf; line-height: 1.8; margin-bottom: 10px; }
+
+.policy-section ul { list-style: none; margin: 15px 0; }
+.policy-section li { padding-left: 25px; position: relative; }
+.policy-section li::before { content: "→"; position: absolute; left: 0; color: #58a6ff; font-weight: bold; }
+
+/* --- DOWNLOAD PAGE BUTTONS --- */
+.btn-download {
+    display: inline-block;
+    padding: 15px 35px;
+    background: #58a6ff;
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 12px;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.btn-download:hover {
+    background: #ffffff;
+    color: #0d1117;
+    transform: translateY(-3px);
+}
 
 /* --- ANIMATIONS --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
+.reveal { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 768px) {
     .nav-links { display: none; }
+    .policy-card { padding: 30px 20px; border: none; background: transparent; }
 }
