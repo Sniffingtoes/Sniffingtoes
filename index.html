@@ -28,7 +28,6 @@
     <section class="hero">
         <h1 class="main-title animate-pop">JAMBO</h1>
         <a href="download" class="btn-primary animate-pop">PLAY FREE</a>
-        <div class="bounce-arrow" onclick="window.scrollTo({top: 900, behavior: 'smooth'})">▼</div>
     </section>
 
     <section class="info-section">
@@ -48,23 +47,16 @@
         </div>
     </section>
 
-    <footer>
-        <a href="privacypolicy">Privacy Policy</a>
+    <footer style="text-align: center; padding: 40px;">
+        <a href="privacypolicy" style="color:#444; text-decoration:none;">Privacy Policy</a>
     </footer>
 
     <script>
-        // Intersection Observer for staggered scroll animations
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((e) => { 
-                if(e.isIntersecting) {
-                    e.target.classList.add('show');
-                } 
-            });
+            entries.forEach((e) => { if(e.isIntersecting) e.target.classList.add('show'); });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-        // Mobile menu toggle function
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
         }
