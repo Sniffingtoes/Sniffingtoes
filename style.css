@@ -1,27 +1,24 @@
 /* --- CLEAN PRIVACY UI --- */
-
-/* Wrapper for the page content */
 .policy-container {
     padding: 120px 5% 100px;
-    max-width: 850px; /* Narrower width is easier to read */
+    max-width: 900px; 
     margin: 0 auto;
 }
 
-/* The Glass Card */
 .policy-card {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 28px;
-    padding: 50px 70px;
+    padding: 60px;
     box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
 }
 
-/* Header Styling */
 .policy-card h1 {
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: 900;
-    margin-bottom: 8px;
-    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
 }
 
 .last-updated {
@@ -29,35 +26,37 @@
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 40px;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
     display: block;
 }
 
-/* Section Spacing */
 .policy-section {
-    margin-top: 50px;
+    margin-bottom: 60px;
 }
 
+/* Section Headers */
 .policy-section h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 800;
     color: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Sub-Headers */
 .policy-section h3 {
-    font-size: 1.1rem;
-    color: #58a6ff; /* Accent color for subheaders */
-    margin: 25px 0 10px 0;
+    font-size: 1.2rem;
+    color: #58a6ff;
+    margin: 30px 0 15px 0;
     font-weight: 700;
 }
 
-/* Text & List Cleanup */
 .policy-section p {
     color: #abb2bf;
-    line-height: 1.8; /* Increased line height for "airiness" */
-    margin-bottom: 15px;
+    line-height: 1.8;
+    margin-bottom: 20px;
 }
 
 .policy-section ul {
@@ -67,32 +66,22 @@
 
 .policy-section li {
     color: #abb2bf;
-    margin-bottom: 12px;
-    padding-left: 25px;
+    margin-bottom: 15px;
+    padding-left: 30px;
     position: relative;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
-/* Custom modern checkmark or dot */
+/* Custom modern bullet points */
 .policy-section li::before {
-    content: "";
+    content: "→";
     position: absolute;
     left: 0;
-    top: 10px;
-    width: 6px;
-    height: 6px;
-    background: #58a6ff;
-    border-radius: 50%;
+    color: #58a6ff;
+    font-weight: bold;
 }
 
-/* Mobile Adjustments */
 @media (max-width: 768px) {
-    .policy-card {
-        padding: 40px 25px;
-        border-radius: 0; /* Flat look for mobile edge-to-edge */
-        background: transparent;
-        border: none;
-    }
-    
-    .policy-card h1 { font-size: 2rem; }
+    .policy-card { padding: 40px 20px; border: none; background: transparent; }
+    .policy-card h1 { font-size: 2.2rem; }
 }
