@@ -49,11 +49,10 @@
     </section>
 
     <footer>
-        <a href="privacypolicy">Privacy Policy</a>
+        <a href="privacypolicy" class="footer-link">Privacy Policy</a>
     </footer>
 
     <script>
-        // Intersection Observer for staggered scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((e) => { 
                 if(e.isIntersecting) {
@@ -64,7 +63,6 @@
 
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-        // Mobile menu toggle function
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
         }
