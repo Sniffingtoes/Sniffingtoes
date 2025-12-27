@@ -2,48 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Jambo | Download</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png">
+    <title>Jambo | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home-bg">
+
     <nav>
         <div class="nav-container">
-            <div class="logo-container"><img src="logo.png" alt="Logo"><span class="brand-name">Jambo</span></div>
-            <div class="nav-links">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo">
+                <span class="brand-name">Jambo</span>
+            </div>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">MENU</div>
+            <div class="nav-links" id="navLinks">
                 <a href="/">Home</a>
-                <a href="/download" class="active-tab">Download</a>
-                <a href="/privacypolicy">Privacy</a>
-                <a href="/discord">Discord</a>
+                <a href="download">Download</a>
+                <a href="discord">Discord</a>
             </div>
         </div>
     </nav>
 
-    <main class="policy-container">
-        <div class="policy-card reveal">
-            <span class="last-updated">Meta Horizon OS</span>
-            <h1>Installation</h1>
-            <p>Jump into the world of hand locomotion. Jambo is available for download directly on your Meta Quest headset via the Store.</p>
-            <a href="YOUR_STORE_LINK" class="btn-download" style="background: #58a6ff; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 20px; font-weight: bold;">VIEW ON QUEST STORE</a>
+    <section class="hero">
+        <h1 class="main-title animate-pop">JAMBO</h1>
+        <a href="download" class="btn-primary animate-pop">PLAY FREE</a>
+        <div class="bounce-arrow" onclick="window.scrollTo({top: 900, behavior: 'smooth'})">▼</div>
+    </section>
+
+    <section class="info-section">
+        <div class="info-card reveal">
+            <h2>JAMBO!</h2>
+            <p>This is a hand locomotion movement style game. Hang out with friends and explore all the maps available in our world.</p>
+        </div>
+        
+        <div class="info-card reveal">
+            <h2>Shop</h2>
+            <p>The shop offers a wide variety of cosmetics to choose from, changing with every update, giving you plenty of choices for unique looks.</p>
         </div>
 
-        <div class="policy-card reveal">
-            <h2>Supported Devices</h2>
-            <ul style="list-style: none; color: #abb2bf; line-height: 2;">
-                <li>→ Meta Quest 2</li>
-                <li>→ Meta Quest 3 / 3S</li>
-                <li>→ Meta Quest Pro</li>
-            </ul>
+        <div class="info-card reveal">
+            <h2>The Teams</h2>
+            <p>I am a solo developer, but we have an incredible team of moderators and a dedicated community supporting the game.</p>
         </div>
-    </main>
+    </section>
+
+    <footer>
+        <a href="privacypolicy">Privacy Policy</a>
+    </footer>
 
     <script>
-        const reveal = () => {
-            document.querySelectorAll(".reveal").forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active");
+        // Intersection Observer for staggered scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((e) => { 
+                if(e.isIntersecting) {
+                    e.target.classList.add('show');
+                } 
             });
-        };
-        window.addEventListener("scroll", reveal);
-        window.addEventListener("load", reveal);
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // Mobile menu toggle function
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
     </script>
 </body>
 </html>
