@@ -15,9 +15,10 @@
                 <span class="brand-name">Jambo</span>
             </div>
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="download.html">Download</a>
-                <a href="discord.html">Discord</a>
+                <a href="/">Home</a>
+                <a href="/download">Download</a>
+                <a href="/privacypolicy" class="active-tab">Privacy</a>
+                <a href="/discord">Discord</a>
             </div>
         </div>
     </nav>
@@ -27,14 +28,15 @@
             <h1>Jambo Privacy Policy</h1>
             <span class="last-updated">Last Updated: December 2025</span>
 
-            <div class="policy-section reveal">
+            <div class="policy-section">
                 <h2>1. Data Collection & Sources</h2>
                 <h3>1.1 Meta Account Integration</h3>
-                <p>Jambo utilizes Meta accounts for secure authentication and profile management. Upon launching the Game, we access:</p>
+                <p>Jambo utilizes Meta accounts for secure authentication and profile management. Upon launching the Game, we access the following information:</p>
                 <ul>
                     <li>Your public display name</li>
                     <li>Your unique Meta user ID</li>
                 </ul>
+
                 <h3>1.2 Gameplay & Analytics</h3>
                 <p>To provide a seamless experience, Jambo collects data regarding:</p>
                 <ul>
@@ -45,9 +47,9 @@
                 </ul>
             </div>
 
-            <div class="policy-section reveal">
+            <div class="policy-section">
                 <h2>2. Purpose of Data Processing</h2>
-                <p>We process your information to ensure Jambo remains functional and fair. This data is used to:</p>
+                <p>We process your information to ensure Jambo remains functional and fair. Specifically, this data is used to:</p>
                 <ul>
                     <li>Operate, maintain, and optimize the Game environment</li>
                     <li>Diagnose technical glitches, crashes, and performance bottlenecks</li>
@@ -57,18 +59,28 @@
                 </ul>
             </div>
 
-            <div class="policy-section reveal">
+            <div class="policy-section">
                 <h2>3. Information Disclosure</h2>
                 <p>Jambo does not sell user data to third parties or advertisers. We only share information with:</p>
                 <ul>
                     <li><strong>Service Providers:</strong> Trusted backend and analytics partners essential for game operations.</li>
-                    <li><strong>Legal Necessity:</strong> Authorities when required by law or to ensure community safety.</li>
+                    <li><strong>Legal Necessity:</strong> Authorities or regulatory bodies when required by law or to ensure the safety of our community.</li>
                 </ul>
             </div>
 
-            <div class="policy-section reveal">
+            <div class="policy-section">
                 <h2>4. Storage and Retention</h2>
-                <p>Data is stored only for the duration necessary to support your gameplay or fulfill legal requirements. Should your Meta account be deactivated, your associated data will be permanently deleted or anonymized.</p>
+                <p>Data is stored only for the duration necessary to support your gameplay experience or fulfill legal requirements. Should your Meta account be deactivated or your access to Jambo terminate, your associated data will be permanently deleted or anonymized.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>5. Protection of Minors</h2>
+                <p>Jambo is intended for users aged 13 and older. We do not knowingly collect personal information from children under 13. If we become aware of any such data collection, it will be purged from our servers immediately.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>6. Security Measures</h2>
+                <p>We employ industry-standard technical and organizational safeguards to protect your information against unauthorized access, loss, or alteration.</p>
             </div>
         </div>
     </main>
@@ -79,11 +91,13 @@
             reveals.forEach(el => {
                 const windowHeight = window.innerHeight;
                 const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) { el.classList.add("active"); }
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add("active");
+                }
             });
         };
         window.addEventListener("scroll", reveal);
-        reveal();
+        window.addEventListener("load", reveal);
     </script>
 </body>
 </html>
