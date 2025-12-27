@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="logo.png">
     <title>Jambo | Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="home-bg">
+<body>
 
     <nav>
         <div class="nav-container">
@@ -16,50 +14,33 @@
                 <img src="logo.png" alt="Logo">
                 <span class="brand-name">Jambo</span>
             </div>
-            <div class="mobile-menu-btn" onclick="toggleMenu()">MENU</div>
-            <div class="nav-links" id="navLinks">
-                <a href="/">Home</a>
-                <a href="download">Download</a>
-                <a href="discord">Discord</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="download.html">Download</a>
+                <a href="privacypolicy.html">Privacy</a>
+                <a href="discord.html">Discord</a>
             </div>
         </div>
     </nav>
 
-    <section class="hero">
-        <h1 class="main-title animate-pop">JAMBO</h1>
-        <a href="download" class="btn-primary animate-pop">PLAY FREE</a>
-    </section>
-
-    <section class="info-section">
-        <div class="info-card reveal">
-            <h2>JAMBO!</h2>
-            <p>This is a hand locomotion movement style game. Hang out with friends and explore all the maps available in our world.</p>
-        </div>
-        
-        <div class="info-card reveal">
-            <h2>Shop</h2>
-            <p>The shop offers a wide variety of cosmetics to choose from, changing with every update, giving you plenty of choices for unique looks.</p>
-        </div>
-
-        <div class="info-card reveal">
-            <h2>The Teams</h2>
-            <p>I am a solo developer, but we have an incredible team of moderators and a dedicated community supporting the game.</p>
-        </div>
-    </section>
-
-    <footer style="text-align: center; padding: 40px;">
-        <a href="privacypolicy" style="color:#444; text-decoration:none;">Privacy Policy</a>
-    </footer>
+    <main>
+        <section class="hero reveal">
+            <h1 class="main-title">JAMBO</h1>
+            <a href="download.html" class="btn-primary">DOWNLOAD NOW</a>
+        </section>
+    </main>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((e) => { if(e.isIntersecting) e.target.classList.add('show'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
+        const reveal = () => {
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { el.classList.add("active"); }
+            });
+        };
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
     </script>
 </body>
 </html>
