@@ -1,48 +1,36 @@
-/* --- 1. CORE & THEME SETUP --- */
+/* --- 1. CORE SETUP --- */
 html {
-    scroll-behavior: smooth;
     height: 100%;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
     font-family: 'Inter', sans-serif;
     color: white;
-    background-color: #05070a; 
     overflow-x: hidden;
-    line-height: 1.6;
-    min-height: 100vh;
+    
+    /* THE BACKGROUND FIX */
+    /* This applies the image directly to the body and adds a dark tint */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
+                url('Background.png') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #05070a; /* Fallback color */
 }
 
-/* MOBILE BACKGROUND FIX: 
-   We use a fixed pseudo-element to ensure the image 
-   stays visible even when mobile address bars hide/show.
-*/
-.home-bg::before {
-    content: "";
+/* THE BLUR EFFECT */
+/* Since blurring the body blurs the text, we use one fixed overlay */
+.blur-overlay {
     position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    /* Ensure your file is named exactly Background.png */
-    background: linear-gradient(rgba(0,0,0,0.5), #05070a), url('Background.png');
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: blur(15px); 
-    z-index: -1;
-    /* This forces mobile devices to keep the image rendered */
-    will-change: transform;
-    transform: scale(1.1); 
+    top: 0; left: 0; width: 100%; height: 100%;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: -1; /* Sits behind text, in front of background */
+    pointer-events: none;
 }
 
-/* --- 2. NAVIGATION BAR --- */
+/* --- 2. NAVIGATION --- */
 nav {
     background: rgba(5, 7, 10, 0.85);
     backdrop-filter: blur(20px);
@@ -52,58 +40,19 @@ nav {
     align-items: center;
     padding: 0 5%;
     position: fixed;
-    width: 100%; 
-    top: 0; 
-    z-index: 2000;
+    width: 100%; top: 0; z-index: 2000;
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-}
+.nav-container { display: flex; justify-content: space-between; width: 100%; align-items: center; }
+.logo-container { display: flex; align-items: center; gap: 12px; }
+.logo-container img { height: 40px; }
+.brand-name { font-weight: 900; font-size: 1.2rem; text-transform: uppercase; }
 
-.logo-container img {
-    height: 45px;
-    transition: transform 0.4s ease;
-}
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { color: white; text-decoration: none; font-weight: 700; opacity: 0.7; }
 
-.brand-name {
-    font-weight: 700;
-    font-size: 1.2rem;
-    letter-spacing: 0.5px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    opacity: 0.6;
-    transition: 0.3s ease;
-}
-
-.nav-links a:hover {
-    opacity: 1;
-}
-
-.mobile-menu-btn {
-    display: none;
-    font-weight: 900;
-    font-size: 0.8rem;
-    cursor: pointer;
-    border: 1px solid white;
-    padding: 5px 10px;
-}
-
-/* --- 3. HERO SECTION --- */
+/* --- 3. HERO & CONTENT --- */
 .hero {
     height: 100vh;
     display: flex;
@@ -111,93 +60,48 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 20px;
 }
 
 .main-title {
-    font-size: clamp(3rem, 15vw, 8.5rem);
+    font-size: clamp(3rem, 15vw, 8rem);
     font-weight: 900;
     border: 8px solid white;
-    padding: 15px 60px;
+    padding: 15px 70px;
     border-radius: 500px;
-    background: rgba(0,0,0,0.7);
-    margin-bottom: 30px;
-    text-transform: uppercase;
+    background: rgba(0,0,0,0.6);
+    margin-bottom: 35px;
 }
 
 .btn-primary {
     display: inline-block;
-    padding: 18px 60px;
+    padding: 18px 55px;
     border: 2px solid white;
     color: white;
     text-decoration: none;
     font-weight: 800;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.3s;
 }
 
-.btn-primary:hover {
-    background: white;
-    color: black;
-    transform: scale(1.05);
-}
-
-/* --- 4. CONTENT & PRIVACY --- */
 .info-section {
-    padding: 160px 5% 100px; 
+    padding: 160px 5% 100px;
     max-width: 900px;
     margin: 0 auto;
 }
 
 .info-card, .policy-paper {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 40px;
-    border-radius: 24px;
+    border-radius: 25px;
     margin-bottom: 40px;
-    backdrop-filter: blur(10px);
 }
 
-.policy-paper h1 { font-size: 2.5rem; margin-bottom: 10px; }
-.effective-date { color: #666; font-style: italic; margin-bottom: 40px; display: block; }
-.policy-paper h2 { margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-.policy-paper p, .policy-paper li { color: #aaa; margin-bottom: 15px; }
+/* Reveal Animation */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+.reveal.show { opacity: 1; transform: translateY(0); }
 
-/* --- 5. ANIMATIONS --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-    transition: all 0.8s ease-out;
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-@keyframes popIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-.animate-pop { animation: popIn 0.8s ease forwards; }
-
-/* --- 6. MOBILE RESPONSIVE --- */
+/* --- 4. MOBILE --- */
 @media (max-width: 768px) {
-    .mobile-menu-btn { display: block; }
-
-    .nav-links {
-        display: none;
-        position: fixed;
-        top: 80px; left: 0; width: 100%;
-        background: rgba(5, 7, 10, 0.98);
-        flex-direction: column;
-        padding: 50px 0;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .nav-links.active { display: flex; }
-
-    .main-title { padding: 10px 30px; border-width: 5px; }
-    
-    .info-section { padding-top: 120px; }
+    .nav-links { display: none; }
+    .main-title { padding: 10px 30px; font-size: 3rem; }
 }
