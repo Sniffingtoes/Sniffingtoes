@@ -11,7 +11,7 @@
     <nav>
         <div class="nav-container">
             <div class="logo-container">
-                <img src="logo.png" alt="Jambo Logo">
+                <img src="logo.png" alt="Logo">
                 <span class="brand-name">Jambo</span>
             </div>
             <div class="nav-links">
@@ -24,43 +24,51 @@
 
     <main class="policy-container">
         <div class="policy-card reveal">
-            <h1>Privacy Policy</h1>
+            <h1>Jambo Privacy Policy</h1>
             <span class="last-updated">Last Updated: December 2025</span>
 
             <div class="policy-section reveal">
                 <h2>1. Data Collection & Sources</h2>
-                <p>Jambo utilizes Meta accounts for secure authentication. Upon launching the Game, we access:</p>
                 <h3>1.1 Meta Account Integration</h3>
+                <p>Jambo utilizes Meta accounts for secure authentication and profile management. Upon launching the Game, we access:</p>
                 <ul>
                     <li>Your public display name</li>
                     <li>Your unique Meta user ID</li>
                 </ul>
                 <h3>1.2 Gameplay & Analytics</h3>
+                <p>To provide a seamless experience, Jambo collects data regarding:</p>
                 <ul>
-                    <li>In-game progress and unlocked achievements</li>
-                    <li>Avatar and cosmetic preferences</li>
-                    <li>Technical diagnostics and performance logs</li>
+                    <li>In-game progress, achievements, and unlocked content</li>
+                    <li>Avatar customizations and cosmetic preferences</li>
+                    <li>Transaction history for in-game currency or items</li>
+                    <li>Technical diagnostics (OS version, device model, and performance logs)</li>
                 </ul>
             </div>
 
             <div class="policy-section reveal">
                 <h2>2. Purpose of Data Processing</h2>
-                <p>We process your information to ensure Jambo remains functional and fair:</p>
+                <p>We process your information to ensure Jambo remains functional and fair. This data is used to:</p>
                 <ul>
-                    <li>Maintain and optimize the Game environment</li>
-                    <li>Diagnose glitches and crashes</li>
-                    <li>Enforce anti-cheat protocols</li>
+                    <li>Operate, maintain, and optimize the Game environment</li>
+                    <li>Diagnose technical glitches, crashes, and performance bottlenecks</li>
+                    <li>Uphold community standards and enforce anti-cheat protocols</li>
+                    <li>Facilitate player support and resolve account inquiries</li>
+                    <li>Refine gameplay balance based on user interaction patterns</li>
                 </ul>
             </div>
 
             <div class="policy-section reveal">
                 <h2>3. Information Disclosure</h2>
-                <p>Jambo does not sell user data. Information is only shared with service providers for game operations or for legal necessity.</p>
+                <p>Jambo does not sell user data to third parties or advertisers. We only share information with:</p>
+                <ul>
+                    <li><strong>Service Providers:</strong> Trusted backend and analytics partners essential for game operations.</li>
+                    <li><strong>Legal Necessity:</strong> Authorities when required by law or to ensure community safety.</li>
+                </ul>
             </div>
 
             <div class="policy-section reveal">
                 <h2>4. Storage and Retention</h2>
-                <p>Data is retained only as long as necessary. Upon account deactivation, data is permanently deleted or anonymized.</p>
+                <p>Data is stored only for the duration necessary to support your gameplay or fulfill legal requirements. Should your Meta account be deactivated, your associated data will be permanently deleted or anonymized.</p>
             </div>
         </div>
     </main>
@@ -71,9 +79,7 @@
             reveals.forEach(el => {
                 const windowHeight = window.innerHeight;
                 const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    el.classList.add("active");
-                }
+                if (elementTop < windowHeight - 100) { el.classList.add("active"); }
             });
         };
         window.addEventListener("scroll", reveal);
