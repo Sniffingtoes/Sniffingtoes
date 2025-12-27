@@ -1,184 +1,98 @@
-/* --- 1. CORE SETUP --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* --- CLEAN PRIVACY UI --- */
 
-html, body {
-    width: 100%;
-    min-height: 100vh;
-    /* Changed from solid black to a deep charcoal gradient */
-    background: radial-gradient(circle at top, #161b22 0%, #0d1117 100%);
-    color: #e6edf3; /* Softened white for better readability */
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-}
-
-/* --- 2. NAVIGATION BAR --- */
-nav {
-    background: rgba(22, 27, 34, 0.8); /* Lighter translucent grey */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    height: 70px;
-    display: flex;
-    align-items: center;
-    padding: 0 5%;
-    position: fixed;
-    width: 100%; 
-    top: 0; 
-    z-index: 2000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-container img {
-    height: 38px;
-}
-
-.brand-name {
-    font-weight: 800;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-    color: #ffffff;
-}
-
-.nav-links {
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    opacity: 0.7;
-    transition: 0.2s ease;
-}
-
-.nav-links a:hover {
-    opacity: 1;
-    color: #58a6ff; /* Subtle blue highlight on hover */
-}
-
-/* --- 3. HERO SECTION --- */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.main-title {
-    font-size: clamp(3rem, 12vw, 7.5rem);
-    font-weight: 900;
-    /* Lighter border and background for the title box */
-    border: 6px solid rgba(255, 255, 255, 0.9);
-    padding: 15px 60px;
-    border-radius: 100px;
-    background: rgba(255, 255, 255, 0.05);
-    margin-bottom: 30px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-}
-
-.btn-primary {
-    display: inline-block;
-    padding: 16px 50px;
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background: #ffffff;
-    color: #0d1117;
-    transform: translateY(-2px);
-}
-
-/* --- 4. INFORMATION CARDS --- */
-.info-section {
-    padding: 120px 5% 80px;
-    max-width: 900px;
+/* Wrapper for the page content */
+.policy-container {
+    padding: 120px 5% 100px;
+    max-width: 850px; /* Narrower width is easier to read */
     margin: 0 auto;
 }
 
-.info-card, .policy-paper {
-    /* Lighter card backgrounds */
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 40px;
-    border-radius: 16px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+/* The Glass Card */
+.policy-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    padding: 50px 70px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
 }
 
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
+/* Header Styling */
+.policy-card h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 8px;
     color: #ffffff;
 }
 
-p {
-    color: #8b949e; /* Muted light grey text */
+.last-updated {
+    color: #58a6ff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 40px;
+    display: block;
+}
+
+/* Section Spacing */
+.policy-section {
+    margin-top: 50px;
+}
+
+.policy-section h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.policy-section h3 {
+    font-size: 1.1rem;
+    color: #58a6ff; /* Accent color for subheaders */
+    margin: 25px 0 10px 0;
+    font-weight: 700;
+}
+
+/* Text & List Cleanup */
+.policy-section p {
+    color: #abb2bf;
+    line-height: 1.8; /* Increased line height for "airiness" */
+    margin-bottom: 15px;
+}
+
+.policy-section ul {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.policy-section li {
+    color: #abb2bf;
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
     line-height: 1.6;
 }
 
-/* --- 5. ANIMATIONS --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 1s ease-out;
+/* Custom modern checkmark or dot */
+.policy-section li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background: #58a6ff;
+    border-radius: 50%;
 }
 
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- 6. MOBILE RESPONSIVE --- */
+/* Mobile Adjustments */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Mobile menu hidden for now */
+    .policy-card {
+        padding: 40px 25px;
+        border-radius: 0; /* Flat look for mobile edge-to-edge */
+        background: transparent;
+        border: none;
     }
-
-    .main-title {
-        padding: 10px 30px;
-        border-width: 4px;
-        font-size: 3.5rem;
-    }
-
-    .info-card {
-        padding: 25px;
-    }
-}
-
-footer {
-    text-align: center;
-    padding: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-footer a {
-    color: #8b949e;
-    text-decoration: none;
-    font-size: 0.8rem;
+    
+    .policy-card h1 { font-size: 2rem; }
 }
