@@ -1,33 +1,47 @@
-/* --- 1. GLOBAL SETUP --- */
-html, body {
+/* --- 1. RESET & CORE --- */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
     width: 100%;
     min-height: 100vh;
-    background-color: #0d1117; /* Backup color - if screen is blue/grey, code works but image is missing */
+    background-color: #05070a; /* Fallback if image fails */
     color: white;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
 
 /* --- 2. THE BACKGROUND ENGINE --- */
+/* This is the part that was likely causing the black screen. 
+   We use 'home-bg' as the trigger on the body tag. */
+
 .home-bg::before {
-    content: ""; 
+    content: "";
     position: fixed;
-    top: -5%; left: -5%;
-    width: 110%; height: 110%;
-    /* 1. Check if 'Background.png' is in the SAME folder as this CSS file */
-    /* 2. Check if it's named Background.png (Caps matter!) */
+    /* We use -5% to hide the white 'glow' edges caused by blurring */
+    top: -5%; 
+    left: -5%; 
+    width: 110%; 
+    height: 110%;
+    
+    /* BACKGROUND IMAGE SETTINGS */
+    /* Double check your file is named exactly Background.png */
     background: linear-gradient(rgba(0, 0, 0, 0.5), #05070a), 
                 url('Background.png') no-repeat center center;
     background-size: cover;
+    
+    /* BLUR SETTINGS (Works on Mobile & PC) */
     filter: blur(15px);
     -webkit-filter: blur(15px);
-    z-index: -1;
-    transform: translateZ(0);
+    
+    z-index: -1; /* Keeps it behind text */
+    transform: translateZ(0); /* Fixes mobile flickering */
 }
 
-/* --- 3. NAVIGATION (PC & MOBILE) --- */
+/* --- 3. NAVIGATION BAR --- */
 nav {
     background: rgba(5, 7, 10, 0.85);
     backdrop-filter: blur(20px);
@@ -50,26 +64,41 @@ nav {
     align-items: center;
 }
 
-.logo-container { display: flex; align-items: center; gap: 12px; }
-.logo-container img { height: 45px; }
-.brand-name { font-weight: 900; font-size: 1.3rem; text-transform: uppercase; }
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-/* Desktop Menu */
-.nav-links { 
-    display: flex; 
-    gap: 30px; 
+.logo-container img {
+    height: 45px;
+}
+
+.brand-name {
+    font-weight: 900;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Nav Links - Shown on Desktop */
+.nav-links {
+    display: flex;
+    gap: 30px;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
     opacity: 0.7;
     transition: 0.3s ease;
 }
 
-.nav-links a:hover { opacity: 1; }
+.nav-links a:hover {
+    opacity: 1;
+}
 
 /* --- 4. HERO SECTION --- */
 .hero {
@@ -86,10 +115,11 @@ nav {
     font-size: clamp(3rem, 15vw, 8.5rem);
     font-weight: 900;
     border: 10px solid white;
-    padding: 15px 60px;
+    padding: 20px 80px;
     border-radius: 500px;
     background: rgba(0,0,0,0.6);
     margin-bottom: 40px;
+    text-transform: uppercase;
 }
 
 .btn-primary {
@@ -100,45 +130,72 @@ nav {
     text-decoration: none;
     font-weight: 800;
     font-size: 1.1rem;
-    transition: 0.3s;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .btn-primary:hover {
     background: white;
     color: black;
+    transform: scale(1.05);
 }
 
-/* --- 5. CONTENT SECTIONS --- */
+/* --- 5. INFORMATION CARDS --- */
 .info-section {
     padding: 160px 5% 100px;
-    max-width: 950px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .info-card, .policy-paper {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 50px;
     border-radius: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     backdrop-filter: blur(10px);
 }
 
-/* Animations */
-.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
-.reveal.show { opacity: 1; transform: translateY(0); }
+/* Animation trigger class */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s ease-out;
+}
 
-/* --- 6. MOBILE RESPONSIVE --- */
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 6. MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
-    /* Menu stays visible, just gets slightly smaller for mobile */
-    .nav-links { gap: 15px; }
-    .nav-links a { font-size: 0.8rem; }
-    .brand-name { font-size: 1rem; }
-    .logo-container img { height: 35px; }
-    
-    .main-title { 
-        padding: 10px 30px; 
-        font-size: 3.2rem; 
-        border-width: 6px; 
+    /* Make the nav links slightly smaller on mobile but keep them visible */
+    .nav-links {
+        gap: 15px;
     }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+
+    .main-title {
+        padding: 15px 40px;
+        border-width: 6px;
+    }
+
+    .info-card, .policy-paper {
+        padding: 30px 20px;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 60px;
+    opacity: 0.5;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
 }
