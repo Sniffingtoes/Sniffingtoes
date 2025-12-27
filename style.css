@@ -153,6 +153,79 @@ nav {
     backdrop-filter: blur(10px);
 }
 
+.policy-paper {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px;
+    border-radius: 32px;
+    backdrop-filter: blur(20px);
+}
+
+.policy-header {
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 40px;
+}
+
+.policy-header h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.effective-date {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.policy-paper section {
+    margin-bottom: 50px;
+}
+
+.policy-paper h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.policy-paper h3 {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 25px 0 10px 0;
+}
+
+.policy-content p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.policy-content ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.policy-content li {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.policy-content li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: white;
+    font-weight: bold;
+}
+
 .reveal {
     opacity: 0;
     transform: translateY(30px) scale(0.95);
@@ -211,4 +284,8 @@ footer {
     .main-title { padding: 10px 30px; border-width: 5px; }
     
     .info-section { padding-top: 120px; }
+
+    .policy-paper { padding: 30px; }
+    
+    .policy-header h1 { font-size: 2rem; }
 }
