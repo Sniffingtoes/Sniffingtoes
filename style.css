@@ -14,6 +14,7 @@ html, body {
     scroll-behavior: smooth;
 }
 
+/* --- NAVIGATION --- */
 nav {
     background: rgba(22, 27, 34, 0.8);
     backdrop-filter: blur(12px);
@@ -92,6 +93,43 @@ nav {
     width: 60%;
 }
 
+/* --- MAIN PAGE / HERO --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main-title {
+    font-size: clamp(3rem, 12vw, 7.5rem);
+    font-weight: 900;
+    border: 6px solid #ffffff;
+    padding: 15px 60px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 16px 50px;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #ffffff;
+    color: #0d1117;
+}
+
+/* --- PRIVACY POLICY --- */
 .policy-container {
     padding: 140px 5% 100px;
     max-width: 900px;
@@ -103,15 +141,13 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 28px;
     padding: 60px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
     backdrop-filter: blur(10px);
 }
 
 .policy-card h1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: 900;
     margin-bottom: 10px;
-    letter-spacing: -1px;
     color: #ffffff;
 }
 
@@ -120,17 +156,16 @@ nav {
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
     margin-bottom: 50px;
     display: block;
 }
 
 .policy-section {
     margin-bottom: 50px;
-    padding: 25px;
-    border-radius: 16px;
+    padding: 20px;
+    border-radius: 12px;
     border-left: 3px solid transparent;
-    transition: all 0.4s ease;
+    transition: 0.4s ease;
 }
 
 .policy-section:hover {
@@ -141,32 +176,26 @@ nav {
 
 .policy-section h2 {
     font-size: 1.8rem;
-    font-weight: 800;
     color: #ffffff;
     margin-bottom: 20px;
 }
 
 .policy-section h3 {
-    font-size: 1.25rem;
     color: #58a6ff;
-    margin: 30px 0 15px 0;
-    font-weight: 700;
+    margin: 25px 0 10px;
 }
 
 .policy-section p, .policy-section li {
     color: #abb2bf;
     line-height: 1.8;
-    margin-bottom: 15px;
 }
 
-.policy-section ul {
-    list-style: none;
-    margin: 20px 0;
-}
+.policy-section ul { list-style: none; margin: 15px 0; }
 
 .policy-section li {
-    padding-left: 30px;
+    padding-left: 25px;
     position: relative;
+    margin-bottom: 10px;
 }
 
 .policy-section li::before {
@@ -174,13 +203,13 @@ nav {
     position: absolute;
     left: 0;
     color: #58a6ff;
-    font-weight: bold;
 }
 
+/* --- ANIMATIONS --- */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(30px);
+    transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .reveal.active {
@@ -190,7 +219,6 @@ nav {
 
 @media (max-width: 768px) {
     .nav-links { display: none; }
-    .policy-card { padding: 40px 20px; border: none; background: transparent; }
-    .policy-card h1 { font-size: 2.4rem; }
-    .policy-section:hover { transform: none; }
+    .policy-card { padding: 30px 20px; border: none; background: transparent; }
+    .main-title { font-size: 3.5rem; padding: 10px 30px; }
 }
