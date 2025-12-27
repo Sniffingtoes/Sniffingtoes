@@ -36,20 +36,9 @@ nav {
     align-items: center;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
+.logo-container { display: flex; align-items: center; gap: 12px; }
 .logo-container img { height: 40px; }
-
-.brand-name {
-    font-weight: 800;
-    font-size: 1.2rem;
-    letter-spacing: 0.5px;
-    color: #ffffff;
-}
+.brand-name { font-weight: 800; font-size: 1.2rem; color: #ffffff; }
 
 .nav-links { display: flex; gap: 10px; }
 
@@ -59,19 +48,31 @@ nav {
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 700;
-    opacity: 0.6;
+    opacity: 0.5;
     padding: 10px 15px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
 }
 
-.nav-links a:hover {
+/* Tab Highlight Logic */
+.nav-links a:hover, .nav-links a.active-tab {
     opacity: 1;
     color: #58a6ff;
-    background: rgba(88, 166, 255, 0.08);
+    background: rgba(88, 166, 255, 0.1);
     border-radius: 8px;
 }
 
-/* --- HERO SECTION --- */
+.nav-links a.active-tab::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 60%;
+    height: 2px;
+    background: #58a6ff;
+    transform: translateX(-50%);
+}
+
+/* --- HERO & INFO --- */
 .hero {
     height: 100vh;
     display: flex;
@@ -79,7 +80,6 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 20px;
 }
 
 .main-title {
@@ -89,77 +89,31 @@ nav {
     padding: 15px 60px;
     border-radius: 100px;
     background: rgba(255, 255, 255, 0.05);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-.btn-primary {
-    display: inline-block;
-    padding: 16px 50px;
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 8px;
-    transition: 0.3s ease;
-}
-
-.btn-primary:hover {
-    background: #ffffff;
-    color: #0d1117;
-    transform: translateY(-3px);
-}
-
-/* --- INFO/POLICY CARDS --- */
-.info-section {
-    padding: 0 5% 100px;
-    max-width: 900px;
-    margin: 0 auto;
-}
+.info-section { padding: 0 5% 100px; max-width: 900px; margin: 0 auto; }
 
 .policy-card {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 28px;
-    padding: 50px;
+    padding: 40px;
     margin-bottom: 30px;
     backdrop-filter: blur(10px);
 }
 
-.policy-card h2 { font-size: 2rem; color: #ffffff; margin-bottom: 20px; }
-
-.policy-card p { color: #abb2bf; line-height: 1.8; font-size: 1.1rem; }
-
-.policy-card ul { list-style: none; margin-top: 20px; }
-
-.policy-card li {
-    color: #abb2bf;
-    margin-bottom: 12px;
-    padding-left: 25px;
-    position: relative;
-}
-
-.policy-card li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: #58a6ff;
-    font-weight: bold;
-}
+.policy-card h2 { color: #58a6ff; margin-bottom: 15px; }
+.policy-card p { line-height: 1.8; color: #abb2bf; }
 
 /* --- ANIMATIONS --- */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(30px);
+    transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
+.reveal.active { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 768px) {
     .nav-links { display: none; }
-    .main-title { font-size: 3.5rem; padding: 10px 30px; }
-    .policy-card { padding: 30px 20px; }
 }
