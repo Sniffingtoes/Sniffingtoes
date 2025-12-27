@@ -4,29 +4,29 @@ html, body {
     padding: 0;
     width: 100%;
     min-height: 100vh;
-    background-color: #05070a;
+    background-color: #05070a; /* Base color */
     color: white;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
 
-/* --- 2. THE FIXED BACKGROUND (Works on Mobile) --- */
-/* We create a dedicated background container that is ALREADY blurred */
+/* --- 2. THE BACKGROUND ENGINE --- */
+/* This works on PC and Mobile */
 .home-bg::before {
-    content: "";
+    content: ""; /* MUST HAVE THIS or it disappears */
     position: fixed;
-    top: -10%; /* Extra margin to hide unblurred edges */
-    left: -10%;
-    width: 120%; 
-    height: 120%;
+    top: -5%; 
+    left: -5%;
+    width: 110%; 
+    height: 110%;
     /* Ensure filename is exactly Background.png */
     background: linear-gradient(rgba(0, 0, 0, 0.5), #05070a), 
                 url('Background.png') no-repeat center center;
     background-size: cover;
-    filter: blur(15px); /* This applies the blur directly to the image */
-    -webkit-filter: blur(15px); /* Safari support */
-    z-index: -1;
-    transform: translateZ(0); /* Hardware acceleration for mobile */
+    filter: blur(15px);
+    -webkit-filter: blur(15px);
+    z-index: -1; /* Keeps it behind everything */
+    transform: translateZ(0);
 }
 
 /* --- 3. NAVIGATION --- */
@@ -53,17 +53,25 @@ nav {
 }
 
 .logo-container { display: flex; align-items: center; gap: 10px; }
-.logo-container img { height: 35px; }
-.brand-name { font-weight: 900; font-size: 1.1rem; text-transform: uppercase; }
+.logo-container img { height: 40px; }
+.brand-name { font-weight: 900; font-size: 1.2rem; text-transform: uppercase; }
 
-.nav-links { display: flex; gap: 20px; }
+/* Show links on PC */
+.nav-links { 
+    display: flex; 
+    gap: 30px; 
+}
+
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 700;
     opacity: 0.7;
+    transition: 0.3s;
 }
+
+.nav-links a:hover { opacity: 1; }
 
 /* --- 4. HERO SECTION --- */
 .hero {
@@ -77,52 +85,50 @@ nav {
 }
 
 .main-title {
-    font-size: clamp(2.5rem, 15vw, 7rem);
+    font-size: clamp(3rem, 15vw, 8rem);
     font-weight: 900;
-    border: 6px solid white;
-    padding: 10px 50px;
+    border: 8px solid white;
+    padding: 15px 70px;
     border-radius: 500px;
     background: rgba(0,0,0,0.6);
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .btn-primary {
     display: inline-block;
-    padding: 15px 45px;
+    padding: 18px 55px;
     border: 2px solid white;
     color: white;
     text-decoration: none;
     font-weight: 800;
-    text-transform: uppercase;
-    transition: 0.3s ease;
-}
-
-.btn-primary:hover {
-    background: white;
-    color: black;
 }
 
 /* --- 5. CONTENT SECTIONS --- */
 .info-section {
-    padding: 140px 5% 80px;
-    max-width: 800px;
+    padding: 150px 5% 100px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 .info-card, .policy-paper {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 20px;
-    margin-bottom: 30px;
+    padding: 40px;
+    border-radius: 25px;
+    margin-bottom: 40px;
 }
 
-.reveal { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
 .reveal.show { opacity: 1; transform: translateY(0); }
 
-/* --- 6. MOBILE FIXES --- */
+/* --- 6. MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
-    .nav-links { display: none; } /* Add a mobile menu later if needed */
-    .main-title { padding: 8px 30px; font-size: 3rem; }
-    .hero { height: 80vh; }
+    /* Hide links on mobile unless we add a menu toggle later */
+    .nav-links { display: none; } 
+    
+    .main-title { 
+        padding: 10px 35px; 
+        font-size: 3.5rem; 
+        border-width: 5px;
+    }
 }
