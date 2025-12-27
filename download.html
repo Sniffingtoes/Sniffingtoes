@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="logo.png">
     <title>Jambo | Download</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="home-bg">
+<body>
+
     <nav>
         <div class="nav-container">
             <div class="logo-container">
@@ -15,19 +15,47 @@
                 <span class="brand-name">Jambo</span>
             </div>
             <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="download">Download</a>
-                <a href="discord">Discord</a>
+                <a href="index.html">Home</a>
+                <a href="download.html">Download</a>
+                <a href="privacypolicy.html">Privacy</a>
+                <a href="discord.html">Discord</a>
             </div>
         </div>
     </nav>
 
-    <main class="hero">
-        <div class="hero-content">
-            <h1 class="main-title animate-pop">GET JAMBO</h1>
-            <p style="margin-bottom: 30px; font-weight: 600; opacity: 0.8;">Available now for Meta Quest</p>
-            <a href="#" class="btn-primary animate-pop">DOWNLOAD NOW</a>
+    <main class="policy-container">
+        <div class="policy-card reveal">
+            <h1>Get Jambo</h1>
+            <span class="last-updated">Available on Meta Horizon OS</span>
+            
+            <div class="policy-section">
+                <h2>Installation</h2>
+                <p>Experience the next generation of social VR. Download Jambo directly to your Quest headset.</p>
+                <a href="YOUR_QUEST_STORE_LINK_HERE" class="btn-primary" style="margin-top: 20px;">QUEST STORE</a>
+            </div>
+
+            <div class="policy-section">
+                <h2>System Requirements</h2>
+                <ul>
+                    <li>Meta Quest 2, Quest 3, or Quest Pro</li>
+                    <li>Active Meta Account</li>
+                    <li>Stable Internet Connection</li>
+                </ul>
+            </div>
         </div>
     </main>
+
+    <script>
+        const reveal = () => {
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { el.classList.add("active"); }
+            });
+        };
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
+    </script>
 </body>
 </html>
