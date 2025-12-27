@@ -3,15 +3,15 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100%;
-    background-color: #05070a; /* Fallback color */
+    min-height: 100vh;
+    /* This color shows if the image is missing */
+    background-color: #0a0d14; 
     color: white;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
 
-/* --- 2. THE MOBILE BACKGROUND FIX --- */
-/* This creates a fixed layer that stays behind everything */
+/* --- 2. THE BACKGROUND ENGINE --- */
 .home-bg::before {
     content: "";
     position: fixed;
@@ -19,15 +19,15 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* !!! CHECK FILENAME: Must be exactly Background.png !!! */
+    /* TRY CHANGING 'Background.png' TO YOUR EXACT FILENAME BELOW */
     background-image: linear-gradient(rgba(0,0,0,0.5), #05070a), url('Background.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    z-index: -2; /* Deepest layer */
+    z-index: -2;
 }
 
-/* This creates the BLUR layer separately to prevent mobile blackouts */
+/* Blur Layer */
 .home-bg::after {
     content: "";
     position: fixed;
@@ -37,14 +37,14 @@ html, body {
     height: 100%;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    background: rgba(5, 7, 10, 0.2); /* Subtle dark overlay */
-    z-index: -1; /* Above the image, below the text */
+    background: rgba(5, 7, 10, 0.3); 
+    z-index: -1;
     pointer-events: none;
 }
 
 /* --- 3. NAVIGATION --- */
 nav {
-    background: rgba(5, 7, 10, 0.85);
+    background: rgba(5, 7, 10, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     height: 75px;
@@ -67,18 +67,17 @@ nav {
 
 .logo-container { display: flex; align-items: center; gap: 10px; }
 .logo-container img { height: 40px; }
-.brand-name { font-weight: 700; font-size: 1.2rem; letter-spacing: 0.5px; }
+.brand-name { font-weight: 900; font-size: 1.2rem; text-transform: uppercase; }
 
 .nav-links { display: flex; gap: 30px; }
 .nav-links a {
     color: white;
     text-decoration: none;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
     opacity: 0.7;
     transition: 0.3s;
 }
-.nav-links a:hover { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
 
 .mobile-menu-btn {
     display: none;
@@ -86,7 +85,6 @@ nav {
     cursor: pointer;
     border: 1px solid white;
     padding: 5px 10px;
-    font-size: 0.75rem;
 }
 
 /* --- 4. HERO SECTION --- */
@@ -97,7 +95,6 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
 }
 
 .main-title {
@@ -108,7 +105,6 @@ nav {
     border-radius: 500px;
     background: rgba(0,0,0,0.6);
     margin-bottom: 35px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
 .btn-primary {
@@ -118,16 +114,15 @@ nav {
     color: white;
     text-decoration: none;
     font-weight: 800;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.3s;
 }
 
 .btn-primary:hover {
     background: white;
     color: black;
-    transform: translateY(-3px) scale(1.05);
 }
 
-/* --- 5. CONTENT SECTIONS --- */
+/* --- 5. CONTENT --- */
 .info-section {
     padding: 150px 5% 100px;
     max-width: 900px;
@@ -136,61 +131,24 @@ nav {
 
 .info-card, .policy-paper {
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 45px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
     border-radius: 25px;
     margin-bottom: 40px;
 }
 
-.policy-paper h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 10px; }
-.effective-date { color: #555; font-style: italic; margin-bottom: 40px; display: block; }
-.policy-paper h2 { margin-top: 45px; border-bottom: 1px solid #333; padding-bottom: 10px; font-size: 1.6rem; }
-.policy-paper h3 { margin-top: 25px; font-size: 1.1rem; color: #fff; }
-.policy-paper p, .policy-paper li { color: #aaa; line-height: 1.8; margin-bottom: 15px; }
-
-/* --- 6. ANIMATIONS --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.8s ease-out;
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@keyframes popIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-.animate-pop { animation: popIn 0.8s ease forwards; }
-
-/* --- 7. MOBILE RESPONSIVE --- */
+/* --- 6. MOBILE FIXES --- */
 @media (max-width: 768px) {
     .mobile-menu-btn { display: block; }
-
     .nav-links {
         display: none;
         position: fixed;
         top: 75px; left: 0; width: 100%;
-        background: rgba(5, 7, 10, 0.98);
+        background: rgba(5, 7, 10, 0.95);
         flex-direction: column;
         padding: 50px 0;
-        text-align: center;
         gap: 30px;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-
     .nav-links.active { display: flex; }
-
-    .main-title { padding: 10px 35px; border-width: 5px; font-size: 3.5rem; }
-    
-    .info-section { padding-top: 120px; }
-    
-    .info-card, .policy-paper { padding: 30px 20px; }
+    .main-title { padding: 10px 30px; font-size: 3.5rem; }
 }
-
-footer { text-align: center; padding: 60px 20px; border-top: 1px solid rgba(255,255,255,0.05); }
-footer a { color: #444; text-decoration: none; font-size: 0.8rem; transition: 0.3s; }
-footer a:hover { color: white; }
